@@ -1,5 +1,18 @@
-import '@/styles/globals.css'
+import Head from "next/head";
+import { WalletConnectProvider } from "../components/WalletConnectProvider";
+import "@solana/wallet-adapter-react-ui/styles.css";
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+function MyApp({ Component, pageProps }) {
+  return (
+    <>
+      <Head>
+        <title>web3sns</title>
+      </Head>
+			<WalletConnectProvider>
+				<Component {...pageProps} />
+			</WalletConnectProvider>
+    </>
+  );
 }
+
+export default MyApp;
